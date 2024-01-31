@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
+import HomeScreen from "./HomeScreen";
+
 
 function PostScreen(props: any) {
     return (
@@ -8,6 +10,15 @@ function PostScreen(props: any) {
                 <Text style={styles.heading}>{props.route.params.title}</Text>
             </View>
             <Text style={styles.excerpt}>{props.route.params.excerpt}</Text>
+            <Pressable 
+                    style={styles.button}
+                    accessibilityLabel="Go Back" 
+                    onPress={() => {
+                        props.navigation.navigate('HomeScreen')
+                    }}
+            >
+                 <Text style={styles.buttonText}>Go to Homescreen</Text>
+            </Pressable> 
         </View>
     )
 }
@@ -22,6 +33,13 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 20,
+    },
+    buttonText: {
+        color: 'black'
+    },
+    button: {
+        borderWidth: 2,
+        padding: 5
     },
     excerpt: {
         fontSize: 18,
