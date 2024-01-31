@@ -9,12 +9,17 @@ function Post(props: any) {
             </View>
             <Text style={styles.excerpt}>{props.excerpt}</Text>
 
-             
-
              <View style={styles.buttonView}>
                 <Pressable 
                     style={styles.button}
-                    accessibilityLabel="Learn more about the event" > 
+                    accessibilityLabel="Learn more about the event" 
+                    onPress={() => {
+                        props.navigation.navigate('SinglePostScreen', {
+                            title: props.title, 
+                            excerpt: props.excerpt
+                        })
+                    }}
+                > 
                     <Text style={styles.buttonText}>LEARN MORE</Text>
                 </Pressable>
                 <Pressable 
@@ -23,8 +28,6 @@ function Post(props: any) {
                     <Text style={styles.buttonText}>JOIN</Text>
                 </Pressable>   
              </View>
-            
-            
         </View>
     )
 }
