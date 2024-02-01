@@ -2,6 +2,10 @@
 
 CSUN Events is a mobile application developed using React Native and Expo, designed for California State University, Northridge (CSUN) students. The app allows students to post and learn about various events happening on campus.
 
+### Preview
+
+<img alt='screenshot of the app' src='assets/csunevents.jpeg' width='250'>
+
 ## Features
 
 As of right now, these features are under development, but the finished product will include all of them and more.
