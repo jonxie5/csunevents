@@ -1,10 +1,11 @@
+// React and React Native
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ScrollView, } from 'react-native';
 
 // Supabase
 import supabase from "../supabase/supabase";
 
-// Custom Imports
+// Custom Components
 import Post from "../components/Post";
 
 
@@ -24,7 +25,6 @@ function PostsScreen(props) {
         else setPosts(posts)
     }
     
-
     return (
         <View>
             <View style={styles.header}>
