@@ -1,8 +1,9 @@
+// React and React Native
 import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Custom Imports
+// Custom Components
 import SinglePostScreen from './SinglePostScreen';
 import PostsScreen from "./PostsScreen";
  

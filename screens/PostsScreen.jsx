@@ -1,6 +1,7 @@
 // React and React Native
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, ScrollView, } from 'react-native';
+import { Text, View, ScrollView, } from 'react-native';
+import { styles } from "../styles/PostsScreenStyles";
 
 // Supabase
 import supabase from "../supabase/supabase";
@@ -32,11 +33,12 @@ function PostsScreen(props) {
                 </View>
                 <ScrollView style={styles.viewContainer}>
                     {   posts.length > 0 ? posts.map((post) => (
-                            <Post 
-                            navigation={props.navigation} 
-                            {...post}
-                            key={post.id}
-                            />)) : <Text>No events at this time</Text>
+                        <Post 
+                        navigation={props.navigation} 
+                        {...post}
+                        key={post.id}
+                        />
+                        )) : <Text>Loading events...</Text>
                     }
                 </ScrollView>
         </View>
@@ -45,25 +47,3 @@ function PostsScreen(props) {
 
 export default PostsScreen;
 
-const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#D22030',
-        justifyContent: 'space-around',
-        padding: 15,
-    },
-    headerText: {
-        color: 'white',
-        fontSize: 25
-    },
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      justifyContent: 'center'
-    },
-    viewContainer: {
-        padding: 10
-    },
-    statusBarStyles: {
-        backgroundColor: 'red'
-    }
-  });

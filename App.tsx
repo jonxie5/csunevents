@@ -1,16 +1,17 @@
+// React and React Native
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SafeAreaView, SafeAreaProvider, useSafeAreaInsets} from 'react-native-safe-area-context';
-import { StatusBar, StyleSheet } from 'react-native';
+import { SafeAreaProvider} from 'react-native-safe-area-context';
 
 // Components
-
 import HomeScreen from './screens/HomeScreen';
 import ChatScreen from './screens/ChatScreen';
 import AccountScreen from './screens/Account';
 
 // Styling imports
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { styles } from './styles/AppStyles';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,15 @@ export default function App() {
     <SafeAreaProvider style={styles.appContainer}>
       <StatusBar />
       <NavigationContainer>
+
+        {/* Tab.Navigator is the navigator at the bottom of the screen.
+            It is separate from the stack navigator that is in HomeScreen. 
+            
+            screenOptions allows us to modify the tab navigation.
+            tabCarIcon property of screenOptions is used to set custom icons
+            for each tab button.
+            
+            */}
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -39,23 +49,12 @@ export default function App() {
             tabBarInactiveTintColor: 'gray',
             headerShown: false
           })
-        }
-        >
-          <Tab.Screen 
-            name='Home'
-            component={HomeScreen}
-          />
+        }>
 
-          <Tab.Screen
-            name='Chat'
-            component={ChatScreen}
-            options={{ tabBarBadge: 3 }}
-          />
-
-          <Tab.Screen
-            name='Account'
-            component={AccountScreen}
-          />
+          {/* All possible tabs, giving a name to each component is mandatory */}
+          <Tab.Screen name='Home' component={HomeScreen}/>
+          <Tab.Screen name='Chat' component={ChatScreen} options={{ tabBarBadge: 3 }}/>
+          <Tab.Screen name='Account' component={AccountScreen}/>
 
         </Tab.Navigator>
       </NavigationContainer>
@@ -63,9 +62,3 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  appContainer: {
-    paddingTop: 65,
-    backgroundColor: '#D22030'
-  }
-})
